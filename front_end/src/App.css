@@ -1,20 +1,57 @@
-/* Horizontal Navbar */
-/* REMOVE default browser margin */
+/* RESET */
 body {
   margin: 0;
   padding: 0;
 }
 
+/* NAVBAR */
 .nav-ul {
-  list-style: none;           /* Remove bullets */
-  display: flex;              /* Horizontal layout */
-  justify-content: flex-start; /* Align items to the left */
-  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;      /* center vertically */
+  flex-wrap: nowrap;        /* 🔑 keep single line */
+  padding: 0 20px;
   margin: 0;
-  background-color: #2c3e50; /* Dark navbar background */
+  background-color: #2c3e50;
   width: 100%;
   box-sizing: border-box;
 }
+
+/* LOGO */
+.logo-li {
+  margin-right: 20px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* PUSH RIGHT ITEMS */
+.nav-spacer {
+  margin-left: auto;        /* 🔑 push right */
+}
+
+/* NAV ITEMS */
+.nav-ul li {
+  margin: 0 12px;
+  white-space: nowrap;      /* 🔑 prevent breaking */
+}
+
+.nav-ul li a {
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: bold;
+  padding: 15px 8px;
+  display: block;
+}
+
+.nav-ul li a:hover {
+  color: #3498db;
+}
+
+/* FOOTER */
 .footer {
   text-align: center;
   padding: 10px;
@@ -23,43 +60,13 @@ body {
   position: fixed;
   bottom: 0;
   width: 100%;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-.nav-ul li {
-  margin: 0 20px;            /* Space between links */
-}
-
-.nav-ul li a {
-  text-decoration: none;      /* Remove underline */
-  color: #ecf0f1;             /* White-ish text */
-  font-weight: bold;
-  padding: 15px 0;
-  display: block;
-  transition: color 0.3s;
-}
-
-.nav-ul li a:hover {
-  color: #3498db;             /* Hover color */
-}
-
-/* signup page style */
-/* Center the register form */
-.register {
-  width: 350px;
-  margin: 100px auto;        /* centers horizontally */
-  text-align: center;
-  padding: 30px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+/* REGISTER / LOGIN FORMS */
+.register,
 .login {
   width: 350px;
-  margin: 100px auto;        /* centers horizontally */
+  margin: 100px auto;
   text-align: center;
   padding: 30px;
   border: 1px solid #ccc;
@@ -67,10 +74,10 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Input fields */
+/* INPUTS */
 .inputbox {
   display: block;
-  width: 100%;               /* ❗ fixed (you missed px before) */
+  width: 100%;
   margin: 10px 0;
   padding: 10px;
   border: 1px solid #2c3e50;
@@ -78,24 +85,8 @@ body {
   text-align: center;
 }
 
-/* Button styling */
-.signup-btn {
-  width: 100%;
-  padding: 10px;
-  margin-top: 15px;
-  background-color: #2c3e50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.signup-btn:hover {
-  background-color: #34495e;
-}
-
-
+/* BUTTONS */
+.signup-btn,
 .login-btn {
   width: 100%;
   padding: 10px;
@@ -108,39 +99,7 @@ body {
   cursor: pointer;
 }
 
+.signup-btn:hover,
 .login-btn:hover {
   background-color: #34495e;
-}
-
-
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
