@@ -2,7 +2,7 @@ import './App.css';
 import Nav from './components/Nav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Footer from './components/footer';
-import SignUp from './components/sign_up';
+import SignUp from './components/signup';
 import PrivateComponent from './components/PrivateComponent';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <Nav />
         <Routes>
 
-          <Route path="/sign_up" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
 
           <Route element={<PrivateComponent />}>
             <Route path="/" element={<h1>Product listing component</h1>} />
