@@ -3,6 +3,7 @@ const cors = require('cors');
 require('./db/config');
 const Users = require('./db/users');
 const Products = require('./db/Product');
+const e = require('express');
 
 const app = express();
 
@@ -35,5 +36,15 @@ app.post("/add-product", async (req, res) => {
   let result = await product.save();
   res.send(result);
 });
+
+app.get("/products", async (req, res) => {
+  let products = await Products.find();
+  if (products.length > 0) {
+    res.send(products);
+  }else {
+    res.send({ result: "No Products found" });
+  }
+});
+  
 
 app.listen(5000);
