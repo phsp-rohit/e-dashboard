@@ -123,3 +123,7 @@ body {
 .product-list ul{
   margin: 0;
 }
+.product-list ul li.header {
+  font-weight: bold;
+  color: #34495e;
+}
