@@ -64,6 +64,19 @@ app.get("/product/:id", async (req, res) => {
   }
 });
 
+app.put("/product/:id", async (req, res) => {
+  console.log(req.body);   //  check this
+
+  let result = await Products.updateOne(
+    { _id: req.params.id },
+    { $set: req.body }
+  );
+
+  res.send(result);
+});
+
+
+
   
 
 app.listen(5000);
