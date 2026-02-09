@@ -144,3 +144,31 @@ body {
   background-color: #c0392b;
 }
 
+
+/* Search input */
+.search-product{
+  width: 400px;
+  padding: 7px;
+  margin: 20px;
+  border: 2px solid #34495e;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Update link as button */
+.update-btn{
+  background-color: #3cdb34;
+  color: white;
+  padding: 5px 12px;
+  margin-left: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.update-btn:hover{
+  background-color: #32a42a;
+}
+
+
