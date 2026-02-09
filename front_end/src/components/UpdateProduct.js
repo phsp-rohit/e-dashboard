@@ -14,7 +14,11 @@ const UpdateProduct = () => {
   useEffect(() => {
     const getProductDetails = async () => {
       let response = await fetch(
-        `http://localhost:5000/product/${params.id}`
+        `http://localhost:5000/product/${params.id}`,{
+           headers : {
+        authorization : `bearer ${JSON.parse(localStorage.getItem("token"))}`
+    }
+        }
       );
       let result = await response.json();
 
@@ -38,6 +42,7 @@ const UpdateProduct = () => {
         body: JSON.stringify({ name, price, category, company }),
         headers: {
           "Content-Type": "application/json",
+          authorization : `bearer ${JSON.parse(localStorage.getItem("token"))}`
         },
       }
     );

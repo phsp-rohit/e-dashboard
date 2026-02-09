@@ -52,14 +52,15 @@ body {
 }
 
 /* FOOTER */
-.footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #2c3e50;
-  color: white;
+.footer{
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: #34495e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
 }
 
 /* REGISTER / LOGIN FORMS */
@@ -170,5 +171,19 @@ body {
 .update-btn:hover{
   background-color: #32a42a;
 }
+
+.logout-btn{
+  cursor: pointer;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.logout-btn:hover{
+  background-color: red;
+  color: white;
+}
+
 
 

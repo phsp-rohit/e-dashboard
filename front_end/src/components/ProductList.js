@@ -10,9 +10,9 @@ const ProductList = () => {
 
   const getProducts = async () => {
     let result = await fetch("http://localhost:5000/products", {
-      headers : {
-        authorization : `bearer ${JSON.parse(localStorage.getItem("token"))}`
-    }
+      headers: {
+        authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
     });
     result = await result.json();
     setProducts(result);
@@ -21,19 +21,26 @@ const ProductList = () => {
   const deleteProduct = async (id) => {
     let result = await fetch(`http://localhost:5000/product/${id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+      },
     });
     result = await result.json();
 
     if (result) {
       alert("Product Deleted");
-      getProducts(); // ✅ refresh list
+      getProducts();
     }
   };
 
   const searchHandle = async (event) => {
     let key = event.target.value;
     if (key) {
-      let result = await fetch(`http://localhost:5000/search/${key}`);
+      let result = await fetch(`http://localhost:5000/search/${key}`, {
+        headers: {
+          authorization: `bearer ${JSON.parse(localStorage.getItem("token"))}`,
+        },
+      });
       result = await result.json();
       if (result) {
         setProducts(result);
@@ -62,21 +69,27 @@ const ProductList = () => {
         <li className="header">Operation</li>
       </ul>
 
-      {products.length > 0 ? products.map((item, index) => (
-        <ul key={item._id}>
-          <li>{index + 1}</li>
-          <li>{item.name}</li>
-          <li>₹ {item.price}</li>
-          <li>{item.category}</li>
-          <li>{item.company}</li>
-          <li>
-            <button
-              className="delete-btn"
-              onClick={() => deleteProduct(item._id)}>Delete</button>
-                <Link className="update-btn" to={`/update/${item._id}`}>Update</Link>
-          </li>
-        </ul>
-      )
+      {products.length > 0 ? (
+        products.map((item, index) => (
+          <ul key={item._id}>
+            <li>{index + 1}</li>
+            <li>{item.name}</li>
+            <li>₹ {item.price}</li>
+            <li>{item.category}</li>
+            <li>{item.company}</li>
+            <li>
+              <button
+                className="delete-btn"
+                onClick={() => deleteProduct(item._id)}
+              >
+                Delete
+              </button>
+              <Link className="update-btn" to={`/update/${item._id}`}>
+                Update
+              </Link>
+            </li>
+          </ul>
+        ))
       ) : (
         <h1>No Result Found</h1>
       )}
